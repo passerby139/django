@@ -10,6 +10,9 @@ class Grades(models.Model):
     gboynum = models.IntegerField()
     isDelete = models.BooleanField()
 
+    def __str__(self):
+        return self.gname
+
 
 class Students(models.Model):
     sname = models.CharField(max_length=20)
@@ -17,4 +20,4 @@ class Students(models.Model):
     sage = models.IntegerField()
     scontend = models.CharField(max_length=20)
     isDelete = models.BooleanField(default=False)
-    sgrade = models.ForeignKey("Grades", on_delete=models.CASCADE)   #定义外键的时候必须定义级联删除
+    sgrade = models.ForeignKey("Grades", on_delete=models.CASCADE)  # 定义外键的时候必须定义级联删除
